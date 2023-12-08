@@ -1,0 +1,972 @@
+body {
+    background: rgb(21, 201, 117);
+    margin: 0;  
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+img {
+    max-height: 14vh;
+    max-width: auto;
+}
+
+h1 {
+    font-size: x-large;
+    font-weight: 800;
+    margin: 0px;
+}
+
+/* PLAYING TABLE */
+
+.container {
+    display: grid;
+    place-items: center;
+    grid-template-columns: .75fr 1fr 2.5fr 1fr .75fr;
+    grid-template-rows: 2fr 5fr .2fr;
+}
+
+.space {
+    grid-area: 1/1/3/2;
+    align-self:start;
+}
+
+.space2 {
+    grid-area: 1/5/3/6;
+    align-self:start;
+}
+
+#advertisement {
+    grid-area: 1/2/3/3;
+    align-self:start;
+    border: 1px solid silver;
+}
+
+#advertisement2 {
+    grid-area: 1/4/3/5;
+    align-self:start;
+    border: 1px solid silver;
+}
+
+.mobile-ad, .close-ad {
+    display: none;
+}
+
+.hero-outer {
+    grid-area: 1/3/2/4;
+    display: grid;
+    position: relative;
+    grid-template-columns: 2fr .5fr;
+    grid-template-rows: 1fr ; 
+    border: 3px solid rgb(5, 82, 46);
+    border-radius: .75em;
+    width: 85vh;
+    height: 85vh;
+    margin: 0;
+    align-self: start;    
+}
+
+/* BATTLE FIELD */
+
+.hero-inner {
+    grid-area: 1/1/2/2;
+    display: grid;
+    grid-template-columns: .3fr 1fr .3fr;
+    grid-template-rows: 1fr 2fr .75fr 1fr;
+}
+
+.table-top-left {
+    grid-area: 1/1/2/2;
+    position: relative;
+}
+
+.trump-text {
+    display: none;
+    position: absolute;
+    font-size: 2vh;
+    font-style: italic;
+    font-weight:700;
+    left: 44vh;
+    top: 20vh;
+}
+
+.trump-hearts, .trump-diamonds, .trump-spades, .trump-clubs {
+    display: none;
+    position: absolute;
+    font-size: 4.5vh;
+    left: 52vh;
+    top: 18vh;
+}
+
+.trump-hearts, .trump-diamonds {
+    color: red;
+}
+
+.partner-container {
+    grid-area: 1/2/2/3;
+    display: grid;
+    grid-template-columns: .25fr .25fr 1fr;
+    grid-template-rows: .2fr 3fr;
+    
+}
+
+.partner-dealer {
+    background-color: white;
+    display: none;
+    grid-area: 1/1/2/2;
+    border-radius: .75em;
+    font-style: italic;
+    font-weight: 700;
+    color: red;
+    text-align: center;
+    width: 40%;
+}
+
+
+.partner-points {
+    display: none;
+    grid-area: 1/2/2/3;
+    border-radius: .75em;
+    font-size: small;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;  
+}
+
+.partner {
+    position: relative;
+    grid-area: 2/1/3/4;
+}
+
+.partner-name {
+    display: none;
+    grid-area: 1/3/2/4;
+    font-size: small;
+    font-style: italic;
+    font-weight: 600;
+    text-align: center;
+}
+
+.partner-dropped-card {
+    position: absolute;
+    left: 118px;
+    top: 36px;
+}
+
+
+
+.table-top-right {
+    grid-area: 1/3/2/4;
+}
+
+.opponent1-container {
+    grid-area: 2/1/4/2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: .25fr 3fr;
+    
+}
+
+.opponent1-dealer {
+    background-color: white;
+    display: none;
+    grid-area: 1/2/2/3;
+    border-radius: .75em;
+    font-style: italic;
+    font-weight: 700;
+    color: red;
+    width: 45%;
+    text-align: center; 
+}
+
+.opponent1-points {
+    display: none;
+    grid-area: 1/1/2/2;
+}
+
+.opponent1-points, .opponent2-points {
+    border-radius: .75em;
+    font-size: small;
+    font-weight: bold;
+    font-style: italic;
+    width: 70%;
+    text-align: center; 
+}
+.opponent1 {
+    position: relative;
+    grid-area: 2/1/3/3;
+}
+
+
+.opponent1-dropped-card {
+    position: absolute;
+    left: 68px;
+    top: 70px;
+}
+.dropzone {
+    grid-area: 2/2/3/3;
+    position: relative;
+}
+
+.opponent2-container {
+    grid-area: 2/3/4/4;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: .25fr 3fr;
+    
+}
+
+.opponent2-dealer {
+    background-color: white;
+    display: none;
+    grid-area: 1/1/2/2;
+    border-radius: .75em;
+    font-style: italic;
+    font-weight: 700;
+    color: red;
+    width: 42%;
+    text-align: center; 
+    
+}
+
+.opponent2-points {
+    display: none;
+    grid-area: 1/2/2/3;
+}
+
+.opponent2 {
+    position: relative;
+    grid-area: 2/1/3/3;
+}
+
+.opponent2-dropped-card {
+    position: absolute;
+    left: 168px;
+    top: 70px;
+}
+
+.message-board {
+    background: rgb(180, 238, 202); 
+    display: none;
+    position: relative;
+    grid-area: 3/2/4/3;
+    border-radius: .25em;
+    text-align: center;
+    padding: .5em;
+    margin-right: .5em;
+    height:60%;
+    font-size: 2.75vh;
+}
+
+.show-score, .next-round {
+    font-size: medium;
+    font-weight: 600;
+    font-style: italic;
+    color: blue;
+    text-align: center;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.player-container {
+    grid-area: 4/1/5/4;
+    display: grid;
+    grid-template-columns: .15fr .1fr 1fr;
+    grid-template-rows: .2fr 1fr;
+    
+}
+
+.player-dealer {
+    background-color: white;
+    display: none;
+    grid-area: 1/2/2/3;
+    border-radius: .75em;
+    font-style: italic;
+    font-size: medium;
+    font-weight: 700;
+    color: red;
+    text-align: center;
+    width: 50%;
+
+}
+
+.team-scores {
+    display: none;
+    grid-area: 1/3/2/4;
+    border-radius: .75em;
+    font-size: small;
+    font-style: italic;
+    font-weight: 500;
+    text-align: left; 
+}
+
+.tricks-title {
+    font-size: x-small;
+    font-weight: 700;
+}
+
+.player {
+    position: relative;
+    grid-area: 2/2/3/4;
+}
+
+.player-empty-space {
+    grid-area: 1/1/3/2;
+}
+
+
+.player-dropped-card {
+    position: absolute;
+    left: 118px;
+    top: 110px;
+}
+
+
+/* CONTROL PANEL */
+
+.control {
+    background-color: rgb(21, 201, 117);
+    border-top-right-radius: .5em;
+    border-bottom-right-radius: .5em;
+    grid-area: 1/2/4/3;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.5fr 0.5fr 0.5fr 1.25fr 0.5fr 0.5fr 1.5fr; 
+}
+
+.strategy, .rules, .score, .stats {
+    background-color: rgb(32, 122, 74);
+    color: white;
+    font-size: 0.75em;
+    padding-top: 1em;
+    cursor: pointer;
+}
+
+.strategy {   
+    grid-area: 2/1/3/2;    
+    border-bottom: 1px solid rgb(180, 238, 202);
+    border-top-left-radius: .5em;   
+}
+
+.strategy:hover {
+    border: 2px solid rgb(180, 238, 202);
+}
+
+.rules {
+    grid-area: 3/1/4/2;
+    border-bottom: 1px solid rgb(180, 238, 202);
+}
+
+.rules a, .strategy a {
+    text-decoration: none;
+    color: white;
+}
+
+.rules:hover {
+    border: 2px solid rgb(180, 238, 202);
+}
+
+.buttons {
+    background: rgb(32, 122, 74);
+    padding-top: 1.25em;
+    color: white;
+    border-bottom: 1px solid rgb(180, 238, 202);
+    font-size: 3.25vh;
+    grid-area: 4/1/5/2;
+    cursor: pointer;
+}
+
+.buttons:hover {
+    border: 2px solid rgb(180, 238, 202); 
+}
+
+.deal {
+    font-size: 5.5vh;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.score {
+    border-bottom: 1px solid rgb(180, 238, 202);
+    grid-area: 5/1/6/2;
+}
+
+.stats {
+    border-bottom-left-radius: .5em;
+    grid-area: 6/1/7/2;
+}
+
+.stats:hover {
+    border: 2px solid rgb(180, 238, 202);
+}
+
+.score:hover {
+    border: 2px solid rgb(180, 238, 202); 
+}
+
+.control-top {
+    grid-area: 1/1/2/2;
+}
+
+.control-bottom {
+    grid-area: 8/1/9/2;
+}
+
+
+/* SCORE SHEET */
+
+.scoreboard {
+    display: none;
+    background: rgb(180, 238, 202, .9);
+    border-radius: .5em;
+    position: absolute;
+    height: 85%;
+    width: 30em;
+    left: 15px;
+    top: 10px;
+    z-index: 99;
+    padding: 1em;
+    margin: 1em;
+    font-size: small;
+    
+}
+
+.cross {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.75em;
+    font-weight:900;
+    text-align: right;
+    padding-right: 1em;
+}
+.close {
+    cursor: pointer;
+}
+
+
+.score-container {
+    width: 60%;
+    margin-left: 6em;
+
+}
+
+.score-title {
+    font-size: large;
+    font-weight: 700;
+    font-style: italic;
+    text-align: center;
+    letter-spacing: .2em;
+
+}
+
+.rubber-title, .game-title {
+    font-size: medium;
+    font-weight: 600;
+    text-align: center;
+}
+.game-small {
+    font-size: small;
+}
+
+.rubber-container {
+    background-color: black;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 1px;
+    border: 2px solid black;
+    
+}
+.rubber-you {
+    background-color: rgb(180, 238, 202);
+    grid-area: 1/1/2/2;
+    font-size: small;
+    font-weight: 600;
+    text-align: center;
+
+}
+
+.rubber-opponents {
+    background-color: rgb(180, 238, 202);
+    grid-area: 1/2/2/3;
+    font-size: small;
+    font-weight: 600;
+    text-align: center;
+}
+
+.rubber-you-score, .rubber-opponents-score {
+    background-color: rgb(180, 238, 202);
+    font-size: small;
+    text-align: center;
+}
+
+.game-container {
+    background-color: black;
+    display: grid;
+    grid-template-columns: .5fr 1fr 1fr;
+    grid-gap: 1px;
+    border: 2px solid black;
+    font-size: x-small;
+    text-align: center; 
+}
+
+.round-top {
+    grid-area: 1/1/2/2;
+}
+.round-top, .game-you, .game-opponents, .round-total, .round-total-you,
+.round-total-opponents {
+    background-color: rgb(180, 238, 202);
+    font-size: x-small;
+    font-weight: 700;
+    text-align: center;
+}
+
+
+.game-you {
+    grid-area: 1/2/2/3;
+}
+
+.game-opponents {
+    grid-area: 1/3/2/4;
+}
+
+.round1, .round1-you, .round1-opponents, .round2, .round2-you, .round2-opponents,
+.round3, .round3-you, .round3-opponents, .round4, .round4-you, .round4-opponents,
+.round5, .round5-you, .round5-opponents, .round6, .round6-you, .round6-opponents,
+.round7, .round7-you, .round7-opponents, .round8, .round8-you, .round8-opponents,
+.round9, .round9-you, .round9-opponents {
+    background-color: rgb(180, 238, 202);
+}
+
+.match-winner, .game-winner, .round-winner {
+    font-size: medium;
+    font-weight:600;
+    text-align: center;
+}
+
+.new-match, .new-game, .new-round {
+    font-size: medium;
+    font-weight:600;
+    font-style: italic;
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* NAVIGATION */
+
+h2 {
+    margin: 0;
+    margin-left: 1em;
+    padding-bottom: 0.15em;
+    color: white;
+}
+  
+.title {
+    text-decoration: none;
+    display: flex;
+    cursor:pointer;  
+    color: inherit;
+}
+
+h2 a {
+    text-decoration: none;
+    color: white;
+}
+
+
+.club {
+    color: rgb(94, 235, 145);
+    font-size: 24px;
+    font-weight:800;
+    padding-left: .15em;   
+}
+
+ 
+
+.navbar{  
+    background:rgb(5, 72, 36);  
+    display:flex;  
+    top:0;  
+    height:3em;  
+    justify-content: space-between;
+    align-items:center;   
+    padding:0px, 5px;  
+    padding-right: 2em;
+    
+}  
+
+.mobile-nav {
+    display: none;
+}
+
+.nav-sub{  
+    display: flex;
+    justify-content: space-between;
+    font-size:small;
+} 
+
+.mobile-sub.active {
+    left: 0;
+}
+
+.popular-games {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.list-item {  
+    padding: 1em;
+    list-style:none; 
+} 
+
+.hammer-item {
+    display: none;
+    padding: 1em;
+}
+
+.nav-link{  
+    color:rgb(213, 206, 206);  
+    text-decoration:none;  
+    text-align:right;
+}  
+
+.nav-link:hover {
+    color: white;
+}
+
+.hammer{  
+    display:none;  
+    padding:5px;  
+    cursor:pointer;  
+}  
+
+.hammer.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hammer.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hammer.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.bar {  
+    display:block;  
+    width:35px;  
+    height:3px;  
+    margin:5px auto;  
+    background-color: rgb(5, 72, 36); 
+    transition: 0.3s;  
+}  
+
+/* GAME NAME */
+
+.game-name {
+  height: 1.2em;
+  text-align: center;
+  color: rgb(3, 58, 29); 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: x-large;
+  font-weight:900;
+  font-style: italic;
+  letter-spacing: .4em;
+  padding-bottom: 0.25em;
+}
+
+.mobile-game-name {
+    display: none;
+}
+
+/*  NOTES */
+
+.notes {
+    background: white;
+    grid-area: 2/3/3/4;
+    width: 85vh;
+    border:2px solid rgb(5, 82, 46);
+    border-radius: .75em;
+    text-align: center;
+    align-self: start;
+    padding: 2em;
+    margin-top: 1em;
+    
+}
+
+
+ol {
+    text-align: left;
+}
+
+
+.game-rules {
+    padding: 0;
+    margin:0;
+    text-align: center;
+}
+
+.game-rules p {
+    text-align: left;
+
+}
+
+h3 {
+    text-decoration: underline;
+    padding: 0;
+    margin-top: 0;
+}
+
+.back {
+    text-align: right;
+    padding-right: 2em;
+    padding-top: .25em;
+    padding-bottom:0;
+    margin:0;
+}
+
+.rules-sub {
+    text-align: left;
+}
+
+
+li {
+    list-style: square inside none;
+}
+
+.glos-bold {
+    font-weight: 700;
+
+}
+
+/* Copyright */
+
+.copyright {
+    grid-area: 3/3/4/4;
+    font-size: small;
+    height: 3em;
+    padding-top: 1.5em;
+}
+
+@media only screen and (max-width: 560px) {
+
+    html,body{
+        overflow-x: hidden;
+    }
+
+    #advertisement {
+        display: none;
+    }
+
+    #advertisement2 {
+        display: none;
+    }
+
+    .mobile-ad {
+        display: block;
+        border: 1px solid silver;
+    }
+
+    .close-ad {
+        display: block;
+        font-size: small;
+        font-style: italic;
+        text-decoration: underline;
+        text-align: center;
+        color: blue;
+
+    }
+
+    .space {
+        display: none;
+    }
+
+    .space2 {
+        display: none;
+    }
+
+    .title {
+        display: none;
+    }
+
+    .popular-games {
+        display: none;
+    }
+    .navbar {
+        display: none;
+    }
+
+    .mobile-nav {
+        display: flex;
+    }
+
+    .mobile-sub{  
+        background-color:white;  
+        position:absolute;  
+        border:3px solid rgba(22, 86, 53);
+        border-bottom-right-radius: .75em;
+        border-top-right-radius: .75em;
+        width:75%; 
+        height: 70vh;
+        top: 10vh; 
+        left: -100%;  
+        font-size: xx-large;
+        text-align: left;
+        padding-right: 0.5em;
+        padding-bottom: 1em; 
+        flex-direction:column;    
+        transition: 0.3s;
+        z-index:999;   
+    }  
+
+    .nav-link {
+        font-style: italic;
+        color: rgba(22, 86, 53);
+    }
+
+    .nav-link:hover {
+        color:rgb(32, 122, 74);
+    }
+    .hammer-item {
+        font-weight: 700;
+        padding-top: 2em;
+        padding-bottom: 10px;
+        display: block;
+    }
+
+    .nav-change{  
+       transform:translate(0%);
+    }  
+
+    .hammer{  
+        display:block;  
+    }  
+    .game-name {
+        display: none;
+    }
+ 
+    .mobile-game-name {
+        position: absolute;
+        display: block;
+        width: 50vmin;
+        top: .25em;
+        left: 6em;
+        font-style: italic;
+        font-size: x-large;
+        font-weight: 800;
+        letter-spacing: .5em;
+        color: rgb(3, 58, 29); 
+        }
+
+    .trump-text {
+        left: 44vw;
+        top: 15vh;
+    }
+    
+    .trump-hearts, .trump-diamonds, .trump-spades, .trump-clubs {
+        left: 58vw;
+        top: 13vh;
+    }
+    
+    .container {
+        margin-top: 2em;
+    }
+
+    .hero-outer {
+        height: 90vh;
+        width: 95vw;
+        border:none; 
+    }
+
+    .hero-inner {
+        grid-template-columns: .3fr 1fr .3fr;
+        height: 82vh;
+    }
+
+    .opponent1 img, .opponent2 img, .partner img {
+        height: 10vh;
+        width: auto;
+    }
+
+    .player-empty-space {
+        display: none;
+    }
+
+    .player {
+        grid-area: 2/1/3/4;
+    }
+
+
+
+    .player-dropped-card {
+        position: absolute;
+        left: 20vw;
+        top: 22vh;
+    }
+    
+    .partner-dropped-card {
+        position: absolute;
+        left: 20vw;
+        top: 8vh;
+    }
+    
+    .opponent1-dropped-card {
+        position: absolute;
+        left: 8vw;
+        top: 15vh;
+    }
+    
+    .opponent2-dropped-card {
+        position: absolute;
+        left: 32vw;
+        top: 15vh;
+    }
+
+    .opponent1-dealer, .opponent2-dealer, .partner-dealer, .player-dealer {
+        background-color:  rgb(21, 201, 117);
+        font-size: large;
+        font-weight: 800;
+    }
+
+    .opponent1-container {
+        grid-area: 2/1/3/2;
+    }
+
+    .opponent2-container {
+        grid-area: 2/3/3/4;
+    }
+
+    .message-board {
+        grid-area: 3/1/4/4;
+    }
+
+    .team-scores {
+        font-size: medium;
+    }
+
+
+
+
+    .notes {
+        margin-top: 7em;
+        width: 80vw;
+    }
+
+    .scoreboard {
+        width: 82vw;
+        height: 65vh;
+        left: 1em;
+        top: 2em;
+        margin: 0;
+    }
+
+    .trump-hearts, .trump-diamonds, .trump-spades, .trump-clubs {
+        font-size: 2.5vh;
+    }
+    
+
+}
+
